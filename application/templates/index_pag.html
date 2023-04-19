@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--******************** Стиль таблицы************************-->
+
+    <style>
+            table, th, td {
+                                border: 1px solid black;
+                                border-collapse: collapse;
+                            }
+            th, td          {
+                                padding: 5px;
+                            }
+            th              {
+                                text-align: left;
+                            }
+    </style>
+
+</head>
+
+<!--********************  Таблица ***********************-->
+
+<body>
+
+<table style="width:100%">
+  <tr>
+    <th>Название</th>
+    <th>Улица</th>
+    <th>Район</th>
+  </tr>
+
+    <tr>
+    {% for temp in all %}
+    <td style="color: Teal">{{ temp.Name }}</td>
+    <td style="color: Teal">{{ temp.Street }}</td>
+    <td style="color: Teal">{{ temp.District }}</td>
+    </tr>
+{% endfor %}
+
+</table>
+
+<!--*********************** КНОПКИ **************************-->
+
+{% if page.has_previous %}
+<a href="?page_name={{page.previous_page_number}} "> Назад </a>
+{% endif %}
+
+{% if page.has_next %}
+<br> <a href="?page_name={{page.next_page_number}} "> Вперед </a> </br>
+{% endif %}
+
+<h1> {{ page }} </h1>
+
+
+</body>
+</html>
+
